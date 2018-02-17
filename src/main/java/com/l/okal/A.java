@@ -20,6 +20,6 @@ public class A extends Activity
         }else{
 			 startActivityForResult(new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName), 0);
     	}
-	   finish();
+	   android.os.Process.killProcess(android.os.Process.myPid());
     }
 }
