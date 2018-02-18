@@ -23,3 +23,4 @@ public class A extends Activity
 	   android.os.Process.killProcess(android.os.Process.myPid());
     }
 }
+class B extends DeviceAdminReceiver{}
