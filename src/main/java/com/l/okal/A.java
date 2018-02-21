@@ -13,7 +13,7 @@ public class A extends Activity
     {
         super.onCreate(savedInstanceState);
     	DevicePolicyManager policyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-    	ComponentName componentName = new ComponentName(this, B.class);
+	ComponentName componentName = new ComponentName(this, android.app.admin.DeviceAdminReceiver.class);
     	boolean isActive = policyManager.isAdminActive(componentName);
         if (isActive) {
         	 policyManager.lockNow();
@@ -23,4 +23,3 @@ public class A extends Activity
 	   android.os.Process.killProcess(android.os.Process.myPid());
     }
 }
-class B extends DeviceAdminReceiver{}
