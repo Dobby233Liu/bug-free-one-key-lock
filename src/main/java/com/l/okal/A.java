@@ -7,7 +7,6 @@ import android.content.*;
 
 public class A extends Activity 
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -16,10 +15,11 @@ public class A extends Activity
 	ComponentName componentName = new ComponentName(this, android.app.admin.DeviceAdminReceiver.class);
     	boolean isActive = policyManager.isAdminActive(componentName);
         if (isActive) {
-        	 policyManager.lockNow();
+		policyManager.lockNow();
         }else{
-			 startActivityForResult(new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName), 0);
+		startActivityForResult(new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName), 0);
     	}
 	   android.os.Process.killProcess(android.os.Process.myPid());
+        finish();
     }
 }
